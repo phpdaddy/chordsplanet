@@ -1,9 +1,21 @@
-{% if all_songs_list %}
-    <ul>
-        {% for song in all_songs_list %}
-            <li><a href="/songs/{{ song.id }}/">{{ song.lyrics }}</a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No songs are available.</p>
-{% endif %}
+<html>
+<head>
+    <title>Chords Planet</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Songs</h1>
+    {% if all_songs_list %}
+        <div class="list-group">
+            {% for song in all_songs_list %}
+                <a href="/songs/{{ song.id }}/" class="list-group-item">{{ song.artist }} - {{ song.name }}</a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No songs are available.</p>
+    {% endif %}
+</div>
+</body>
+</html>
