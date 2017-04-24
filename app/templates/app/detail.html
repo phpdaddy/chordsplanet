@@ -1,14 +1,22 @@
+{% load static %}
 <html>
 <head>
     <title>Chords Planet</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <h2>{{ song.artist }}</h2>
+    <h1>{{ song.artist }}</h1>
     <h3>{{ song.name }}</h3>
-    <p style="white-space: pre-line">{{ song.lyrics }}</p>
+    <div class="song">
+        {% for line in song.lines %}
+            <span class="line">{{ line }}</span><br>
+        {% endfor %}
+    </div>
 </div>
+<script src="{% static 'app/script.js' %}"></script>
 </body>
 </html>

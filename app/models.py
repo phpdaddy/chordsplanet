@@ -8,3 +8,7 @@ class Song(models.Model):
     chords = models.TextField(blank=None)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    @property
+    def lines(self):
+        return [s.strip() for s in self.lyrics.splitlines()]
